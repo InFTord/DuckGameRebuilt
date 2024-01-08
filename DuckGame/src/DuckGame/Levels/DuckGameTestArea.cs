@@ -136,7 +136,7 @@ namespace DuckGame
                     prof.team.Leave(prof);
             }
             int num = 4;
-            if (things[typeof(EightPlayer)].Count() > 0)
+            if (things[typeof(EightPlayer)].Any())
                 num = 8;
             for (int index = 0; index < num; ++index)
             {
@@ -208,7 +208,7 @@ namespace DuckGame
                 if (numPlayers > 0)
                     Profiles.experienceProfile.team = Teams.Player1;
                 EditorTestLevel t = null;
-                if (things[typeof(EditorTestLevel)].Count() > 0)
+                if (things[typeof(EditorTestLevel)].Any())
                     t = things[typeof(EditorTestLevel)].First() as EditorTestLevel;
                 current = new GameLevel(_levelValue, editorTestMode: true);
                 if (t == null)
@@ -219,7 +219,7 @@ namespace DuckGame
             {
                 transitionSpeedMultiplier = 2f;
                 EditorTestLevel t = null;
-                if (things[typeof(EditorTestLevel)].Count() > 0)
+                if (things[typeof(EditorTestLevel)].Any())
                     t = things[typeof(EditorTestLevel)].First() as EditorTestLevel;
                 current = new DuckGameTestArea(_editor, _levelValue, _seed, _center, _genType)
                 {

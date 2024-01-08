@@ -109,12 +109,12 @@ namespace DuckGame
                 {
                     IEnumerable<Thing> source3 = source1.Where(v => v.sequence.isValid && v.sequence.order != _sequenceNumber && v.sequence.timesActivated <= _activationCycle);
                     source2 = source1.Where(v => v.sequence.isValid && v.sequence.order == _sequenceNumber);
-                    if (source3.Count() > 0)
+                    if (source3.Any())
                         _hadFutureItems = true;
                     if (_hadFutureItems)
                     {
                         source2 = source2.Where(v => v.sequence.timesActivated == _activationCycle);
-                        if (source2.Count() == 0)
+                        if (!source2.Any())
                         {
                             if (!Ordered_Groups.value)
                             {
@@ -128,14 +128,14 @@ namespace DuckGame
                                     foreach (Thing thing in source4)
                                         thing.sequence.timesActivated = 0;
                                 }
-                                if (source4.Count() > 0)
+                                if (source4.Any())
                                 {
                                     _sequenceNumber = source4.OrderBy(x => x.sequence.likelyhood + ChallengeRando.Int(8)).ElementAt(0).sequence.order;
                                     Max_Up.value = _originalMaxUp;
                                     continue;
                                 }
                             }
-                            if (source3.Count() == 0)
+                            if (!source3.Any())
                             {
                                 if (Continuous.value)
                                 {

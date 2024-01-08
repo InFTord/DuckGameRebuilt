@@ -30,8 +30,8 @@ namespace DuckGame
         public override void PrepareCounts()
         {
             base.PrepareCounts();
-            _challenge.countGoodies = Level.current.things[typeof(Goody)].Count() > 0;
-            _challenge.countTargets = Level.current.things[typeof(TargetDuckNew)].Count() > 0 || Level.current.things[typeof(GoalType)].Count() > 0;
+            _challenge.countGoodies = Level.current.things[typeof(Goody)].Any();
+            _challenge.countTargets = Level.current.things[typeof(TargetDuckNew)].Any() || Level.current.things[typeof(GoalType)].Any();
         }
     }
 }

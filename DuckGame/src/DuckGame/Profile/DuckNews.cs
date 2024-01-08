@@ -24,14 +24,14 @@ namespace DuckGame
                 Stream s = DuckFile.OpenStream(file);
                 DuckXML duckXml = DuckXML.Load(s);
                 IEnumerable<DXMLNode> source1 = duckXml.Elements("NewsStory");
-                if (duckXml.invalid || s == null || source1.Count() == 0)
+                if (duckXml.invalid || s == null || !source1.Any())
                     throw new Exception("Content Exception: Failed to load news story (" + Content.path + "news/" + file + ".news)! Is the file missing, or has it been edited?");
                 if (source1 != null)
                 {
                     if (DG.isHalloween)
                     {
                         IEnumerable<DXMLNode> source2 = source1.Elements("NewsStoryHalloween");
-                        if (source2 != null && source2.Count() > 0)
+                        if (source2 != null && source2.Any())
                             source1 = source2;
                     }
                     DuckNews duckNews = Parse(source1.ElementAt(0));

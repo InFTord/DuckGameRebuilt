@@ -1053,7 +1053,7 @@ namespace DuckGame
                     else
                     {
                         IEnumerable<Thing> cd = current.things[typeof(ContinueCountdown)];
-                        if (cd.Count() > 0)
+                        if (cd.Any())
                         {
                             _netCountdown = (cd.ElementAt(0) as ContinueCountdown);
                         }

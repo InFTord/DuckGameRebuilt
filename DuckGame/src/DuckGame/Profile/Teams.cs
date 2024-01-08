@@ -117,7 +117,7 @@ namespace DuckGame
                 List<Team> active = new List<Team>();
                 foreach (Team team in all)
                 {
-                    if (team.activeProfiles.Where(x => x.slotType != SlotType.Spectator).Count() > 0)
+                    if (team.activeProfiles.Any(x => x.slotType != SlotType.Spectator))
                         active.Add(team);
                 }
                 return active;

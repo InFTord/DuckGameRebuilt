@@ -677,7 +677,7 @@ namespace DuckGame
             Teams.GetTeam("HIGHFIVES"),
             Teams.GetTeam("MOTHERS")
           }.Where(x => !Global.boughtHats.Contains(x.name));
-                    if (source.Count() <= 0)
+                    if (!source.Any())
                     {
                         using (List<Furniture>.Enumerator enumerator = UIGachaBox.GetRandomFurniture(Rarity.VeryVeryRare, 1, 0.4f).GetEnumerator())
                         {
@@ -801,7 +801,7 @@ namespace DuckGame
             {
                 if (_soldSelectIndex == _selectIndex)
                 {
-                    if (products.Where(x => !x.sold).Count() == 0)
+                    if (products.All(x => x.sold))
                     {
                         Add("|CONCERNED|WOAH...");
                         Add("|POINT|YOU BOUGHT EVERYTHING!");

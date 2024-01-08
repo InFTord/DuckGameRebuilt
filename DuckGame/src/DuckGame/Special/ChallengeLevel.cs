@@ -133,7 +133,7 @@ namespace DuckGame
             component.leftSection.Add(new UIMenuItem("OPTIONS", new UIMenuActionOpenMenu(_pauseMenu, Options.optionsMenu), UIAlign.Left), true);
             component.leftSection.Add(new UIText("", Color.White), true);
             component.leftSection.Add(new UIMenuItem("|DGRED|QUIT", new UIMenuActionOpenMenu(_pauseMenu, _confirmMenu), UIAlign.Left), true);
-            if (things[typeof(EditorTestLevel)].Count() > 0)
+            if (things[typeof(EditorTestLevel)].Any())
             {
                 component.leftSection.Add(new UIText("", Color.White), true);
                 component.leftSection.Add(new UIMenuItem("CAPTURE ICON", new UIMenuActionOpenMenu(_pauseMenu, _captureMenu), UIAlign.Left), true);
@@ -226,7 +226,7 @@ namespace DuckGame
                 }
                 else
                 {
-                    if (things[typeof(EditorTestLevel)].Count() > 0)
+                    if (things[typeof(EditorTestLevel)].Any())
                     {
                         current = (things[typeof(EditorTestLevel)].First() as EditorTestLevel).editor;
                         Music.Stop();
@@ -257,7 +257,7 @@ namespace DuckGame
                     running = false;
                     transitionSpeedMultiplier = 2f;
                     EditorTestLevel t = null;
-                    if (things[typeof(EditorTestLevel)].Count() > 0)
+                    if (things[typeof(EditorTestLevel)].Any())
                         t = things[typeof(EditorTestLevel)].First() as EditorTestLevel;
                     current = !(_level != "") ? new ChallengeLevel(_levelData, _validityTest) : (Level)new ChallengeLevel(_level);
                     current.transitionSpeedMultiplier = 2f;
@@ -623,12 +623,12 @@ namespace DuckGame
                                             targetDuck.sequence.order = Rando.Int(_max);
                                     }
                                 }
-                                if (things[typeof(RandomControllerNew)].Count() == 0)
+                                if (!things[typeof(RandomControllerNew)].Any())
                                 {
                                     if (random)
                                     {
                                         IEnumerable<Thing> thing = things[typeof(ISequenceItem)];
-                                        if (thing.Count() > 0)
+                                        if (thing.Any())
                                             thing.ElementAt(ChallengeRando.Int(thing.Count() - 1)).sequence.BeginRandomSequence();
                                     }
                                     else
