@@ -1,7 +1,5 @@
 ﻿using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Windows.Automation.Peers;
+
 namespace AddedContent.Biverom.TreeSawing
 {
     public class TreeEnd : Thing

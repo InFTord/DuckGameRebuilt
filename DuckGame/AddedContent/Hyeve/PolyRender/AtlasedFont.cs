@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 using AddedContent.Hyeve.Utils;
 using DuckGame;
 using Microsoft.Xna.Framework;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp.Drawing.Processing;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using Blend = Microsoft.Xna.Framework.Graphics.Blend;
 using Color = DuckGame.Color;
+using Font = System.Drawing.Font;
+using FontFamily = System.Drawing.FontFamily;
+using FontStyle = System.Drawing.FontStyle;
 using Graphics = DuckGame.Graphics;
+using SolidBrush = System.Drawing.SolidBrush;
 
 namespace AddedContent.Hyeve.PolyRender
 {
@@ -162,7 +168,7 @@ namespace AddedContent.Hyeve.PolyRender
             DrawString(text, pos, col, scaler, margin);
         }
 
-        private void Setup(out CharData[] charData, out Tex2D atlas, string fontName, int fontSize, int charCount, FontStyle style, FontFamily memFont = null)
+        private void Setup(out CharData[] charData, out Tex2D atlas, string fontName, int fontSize, int charCount, FontStyle style, FontFamily memFont)
         {
             Font font = memFont == null ? new Font(fontName, fontSize, style, GraphicsUnit.Pixel) : new Font(memFont, fontSize, style, GraphicsUnit.Pixel);
             int atlasWidth = fontSize * charCount;

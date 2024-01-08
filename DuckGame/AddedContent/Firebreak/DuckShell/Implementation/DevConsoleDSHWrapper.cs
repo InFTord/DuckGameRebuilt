@@ -1,14 +1,10 @@
 using DuckGame;
 using DuckGame.ConsoleEngine;
-using DuckGame.ConsoleEngine.TypeInterpreters;
 using DuckGame.ConsoleInterface;
 using DuckShell.Manager.Interface.Console;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace AddedContent.Firebreak.DuckShell.Implementation
 {
